@@ -1,1 +1,12 @@
+com/juego/strategy/KameHameHa.class
+com/juego/model/JuegoLucha.class
+com/juego/strategy/BigBangAttack.class
+com/juego/factory/PersonajeFactory.class
+com/juego/factory/PoderFactory.class
+com/juego/strategy/Poder.class
+com/juego/strategy/FinalFlash.class
+com/juego/model/Vegeta.class
+com/juego/model/Goku.class
+com/juego/MainLucha.class
 com/juego/model/Personaje.class
+com/juego/strategy/PunoDragon.class

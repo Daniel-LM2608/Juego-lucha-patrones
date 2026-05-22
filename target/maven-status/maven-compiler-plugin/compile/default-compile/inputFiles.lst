@@ -1,1 +1,12 @@
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/MainLucha.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/factory/PersonajeFactory.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/factory/PoderFactory.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/model/Goku.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/model/JuegoLucha.java
 /workspaces/Juego-lucha-patrones/src/main/java/com/juego/model/Personaje.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/model/Vegeta.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/strategy/BigBangAttack.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/strategy/FinalFlash.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/strategy/KameHameHa.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/strategy/Poder.java
+/workspaces/Juego-lucha-patrones/src/main/java/com/juego/strategy/PunoDragon.java

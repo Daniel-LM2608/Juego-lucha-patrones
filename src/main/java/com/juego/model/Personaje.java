@@ -1,44 +1,50 @@
 package com.juego.model;
 
 import java.util.Random;
+import java.util.Scanner;
 
-public class Personaje {
+public abstract class Personaje {
     private String nombre;
     private int puntosDeVida;
-    private final int MAX_DANO = 30;
-    private final int MIN_DANO = 10;
-    private Random rand;
+    protected final int MAX_DANO = 30;
+    protected final int MIN_DANO = 10;
+    private int defensa; 
 
-    public Personaje(String nombre) {
+    public Personaje(String nombre, int defensa) {
         this.nombre = nombre;
-        this.puntosDeVida = 100;
-        this.rand = new Random();
+        this.puntosDeVida = 100; 
+        this.defensa = defensa;
     }
 
-    public void atacar(Personaje oponente) {
+    public int getDefensa() { return defensa; }
+    public void setDefensa(int defensa) { this.defensa = defensa; }
+
+    protected int calcularDanoBase() {
+        Random rand = new Random();
         int dano = rand.nextInt((MAX_DANO - MIN_DANO) + 1) + MIN_DANO;
-        oponente.recibirDano(dano);
-        System.out.println(this.nombre + " ataca a " + oponente.getNombre() + 
-                           " causando " + dano + " puntos de danio.");
+        System.out.println("Daño base generado: " + dano);
+        return dano;
     }
+
+    public abstract void atacar(Personaje oponente, Scanner scanner);
 
     public void recibirDano(int dano) {
-        if (dano < 0) return;
-        this.puntosDeVida -= dano;
-        if (this.puntosDeVida < 0) {
-            this.puntosDeVida = 0;
+        int danoReducido = Math.max(0, dano - this.defensa);
+        this.puntosDeVida = Math.max(0, this.puntosDeVida - danoReducido);
+
+        System.out.println(this.nombre + " recibe " + danoReducido + " puntos de daño tras aplicar su defensa de " + this.defensa);
+
+        if (this.puntosDeVida == 0) {
+            System.out.println(this.nombre + " ha sido derrotado.");
         }
     }
 
-    public boolean estaVivo() {
-        return this.puntosDeVida > 0;
-    }
+    public boolean estaVivo() { return this.puntosDeVida > 0; }
+    public String getNombre() { return this.nombre; }
+    public int getPuntosDeVida() { return this.puntosDeVida; }
 
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    public int getPuntosDeVida() {
-        return this.puntosDeVida;
+    @Override
+    public String toString() {
+        return nombre + " (HP: " + puntosDeVida + ", DEF: " + defensa + ")";
     }
 }
